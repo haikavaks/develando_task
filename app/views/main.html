@@ -1,21 +1,9 @@
-<div class="jumbotron">
-  <!--<ul>-->
-    <!--<li ng-repeat="category in categories">-->
-      <!--<span ng-bind="::category" ng-click="setCategory($event)"></span>-->
-    <!--</li>-->
-  <!--</ul>-->
-  <!--<ul >-->
-    <!--<li ng-repeat="post in posts" ng-if="posts">-->
-      <!--<img src="{{::post.image}}" />-->
-      <!--<span ng-bind="::post.title" ng-click="getItem($event,'title')"></span>-->
-      <!--<span ng-bind="::post.description"  ng-click="getItem($event,'description')"> </span>-->
-      <!--<span ng-bind="::post.author"  ng-click="getItem($event,'author')"></span>-->
-      <!--<span ng-bind="::post.category"  ng-click="getItem($event,'category')"></span>-->
-
-    <!--</li>-->
-  <!--</ul>-->
-
- <list  arr="posts"  click ="click" ng-if="posts.length>0">
- </list>
-  <!--<hello fname="person.fname" lname="person.lname"/></div>-->
+<div id="sidebar-wrapper">
+  <filter data="categories" type="'category'" callback="filter" ng-if="categories.length > 0"></filter>
+  <br class="clearfix"/>
+  <filter data="authors" type="'author'" callback="filter" ng-if="authors.length > 0"></filter>
+</div>
+<div class="page-content-wrapper">
+  <list arr="posts" click="redirect" ng-if="posts.length>0">
+  </list>
 </div>

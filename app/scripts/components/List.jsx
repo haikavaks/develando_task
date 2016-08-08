@@ -8,20 +8,24 @@ var List = React.createClass({
     arr: React.PropTypes.array.isRequired,
     click:React.PropTypes.func.isRequired
   },
-  handleClick(id) {
-
-    this.props.click();
+  handleClick(row) {
+    this.props.click(row.id);
   },
   render: function () {
-    self = this;
-    return (<ul>{
+    var self = this;
+    return (<ul className="listing">{
       this.props.arr.map(function (row) {
-        return <li key={row.id} onClick={self.handleClick} >
-          <span>{row.title}</span>
-          <span>{row.author}</span>
-          <span>{row.category}</span>
-          <span>{row.description}</span>
-          <img src={row.image}/>
+        return <li key={row.id} onClick={(event) => self.handleClick(row, event)} >
+          <div>
+            <img src={row.image}/>
+          </div>
+          <div>
+            <span>{row.title}</span><br/>
+            <span>{row.author}</span><br/>
+            <span>{row.category}</span><br/>
+            <span>{row.description}</span><br/>
+          </div>
+
         </li>
       })
       }

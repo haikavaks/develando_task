@@ -8,20 +8,26 @@
  * Controller of the blogApp
  */
 angular.module('blogApp')
-  .controller('MainCtrl', ['$scope', '$http', '_','$timeout', function ($scope, $http, _,$timeout) {
+  .controller('MainCtrl', ['$scope', '$http', '_','$location', function ($scope, $http, _,$location) {
+    var allPosts =[];
     $http.get('/api/posts').then(function (resp) {
+      allPosts = resp.data;
       $scope.posts = resp.data;
     });
     $http.get('/api/categories').then(function (resp) {
       $scope.categories = resp.data;
-    });
-    $scope.click = function(){
-      console.log('controller');
 
+    });
+    $http.get('/api/authors').then(function (resp) {
+      $scope.authors = resp.data;
+
+    });
+    $scope.redirect = function(id){
+      return $location.url('/blog/'+id);
     };
-    $scope.getItem = function (event, field) {
+    $scope.filter = function (value, field) {
       var where = {};
-      where[field] = event.target.innerText;
-      $scope.posts = _.where($scope.posts, where);
+      where[field] = value;
+      $scope.posts = _.where(allPosts, where);
     };
   }]);
