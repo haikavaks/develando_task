@@ -5,10 +5,12 @@
 
 var List = React.createClass({
   propTypes: {
-    arr: React.PropTypes.array.isRequired
+    arr: React.PropTypes.array.isRequired,
+    click:React.PropTypes.func.isRequired
   },
-  handleClick() {
-    alert()
+  handleClick(id) {
+
+    this.props.click();
   },
   render: function () {
     self = this;
@@ -26,6 +28,6 @@ var List = React.createClass({
     </ul>);
   }
 });
-//angular.module('blogApp').value('List', List);
+
 
 

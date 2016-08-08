@@ -15,7 +15,10 @@ angular.module('blogApp')
     $http.get('/api/categories').then(function (resp) {
       $scope.categories = resp.data;
     });
-    $scope.person = {fname: 'Clark', lname: 'Kent'};
+    $scope.click = function(){
+      console.log('controller');
+
+    };
     $scope.getItem = function (event, field) {
       var where = {};
       where[field] = event.target.innerText;
