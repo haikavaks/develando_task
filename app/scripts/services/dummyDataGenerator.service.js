@@ -1,5 +1,5 @@
 'use strict';
- 
+
 angular.module('blogApp').service('dummyDataGenerator', function () {
   var i, postsLength = 25, factory = {}, imageCount = 8;
   var posts = [];
@@ -10,13 +10,14 @@ angular.module('blogApp').service('dummyDataGenerator', function () {
   for (i = 0; i < postsLength; i++) {
     posts.push({
       id: i,
-      title: "Dummy blog title " + i,
-      description: "This is the" + i + " blog description",
+      title: 'Dummy blog title ' + i,
+      description: 'This is the' + i + ' blog description',
       author: authors[i % authorsLength],
       category: categories[i % categoriesLength],
-      image: "images/" + i % imageCount + ".png"
+      image: 'images/' + i % imageCount + '.png'
     });
   }
+
   factory.getPosts = function () {
     return posts;
   };

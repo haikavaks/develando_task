@@ -8,8 +8,8 @@
  * Controller of the blogApp
  */
 angular.module('blogApp')
-  .controller('MainCtrl', ['$scope', '$http', '_','$location', function ($scope, $http, _,$location) {
-    var allPosts =[];
+  .controller('MainCtrl', ['$scope', '$http', '_', '$location', function ($scope, $http, _, $location) {
+    var allPosts = [];
     $http.get('/api/posts').then(function (resp) {
       allPosts = resp.data;
       $scope.posts = resp.data;
@@ -22,12 +22,13 @@ angular.module('blogApp')
       $scope.authors = resp.data;
 
     });
-    $scope.redirect = function(id){
-      return $location.url('/blog/'+id);
+    $scope.redirect = function (id) {
+      $location.url('/blog/' + id);
     };
     $scope.filter = function (value, field) {
       var where = {};
       where[field] = value;
+      $scope.criteria = value
       $scope.posts = _.where(allPosts, where);
     };
   }]);

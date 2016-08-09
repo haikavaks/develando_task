@@ -42,11 +42,11 @@ angular
     });
     $httpBackend.whenPOST('/api/post').respond(function (method, url, data) {
       var id = angular.fromJson(data).post;
-      var post = dummyDataGenerator.getPost(id)
+      var post = dummyDataGenerator.getPost(id);
       if(post){
         return [ 200,post];
       }else{
-        return [404]
+        return [404];
       }
     });
     $httpBackend.whenGET('/api/categories').respond(function () {

@@ -1,9 +1,13 @@
 <div id="sidebar-wrapper">
+  <span >Sort By category</span>
   <filter data="categories" type="'category'" callback="filter" ng-if="categories.length > 0"></filter>
   <br class="clearfix"/>
+  <span >Sort By author</span>
   <filter data="authors" type="'author'" callback="filter" ng-if="authors.length > 0"></filter>
 </div>
 <div class="page-content-wrapper">
+  <h1>Listing <span ng-if="criteria" ng-bind="'filtered by' + criteria"> </span></h1>
   <list arr="posts" click="redirect" ng-if="posts.length>0">
   </list>
 </div>
+
