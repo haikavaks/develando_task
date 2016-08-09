@@ -1,7 +1,7 @@
 /**
  * Created by hayk.avagyan on 09/08/2016.
  */
-describe("api service", function () {
+describe("dummy service", function () {
   var _dummyDataGenerator;
   beforeEach(module("blogApp"));
 
