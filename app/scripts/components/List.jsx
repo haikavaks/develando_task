@@ -1,12 +1,9 @@
 /** @jsx React.DOM */
-/**
- * Created by hayk.avagyan on 08/08/2016.
- */
-
+ 
 var List = React.createClass({
   propTypes: {
     arr: React.PropTypes.array.isRequired,
-    click:React.PropTypes.func.isRequired
+    click: React.PropTypes.func.isRequired
   },
   handleClick(row) {
     this.props.click(row.id);
@@ -15,7 +12,7 @@ var List = React.createClass({
     var self = this;
     return (<ul className="listing">{
       this.props.arr.map(function (row) {
-        return <li key={row.id} onClick={(event) => self.handleClick(row, event)} >
+        return <li key={row.id} onClick={(event) => self.handleClick(row, event)}>
           <div>
             <img src={row.image}/>
           </div>
@@ -28,7 +25,7 @@ var List = React.createClass({
 
         </li>
       })
-      }
+    }
     </ul>);
   }
 });

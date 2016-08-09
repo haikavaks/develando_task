@@ -16,11 +16,9 @@ angular.module('blogApp')
     });
     $http.get('/api/categories').then(function (resp) {
       $scope.categories = resp.data;
-
     });
     $http.get('/api/authors').then(function (resp) {
       $scope.authors = resp.data;
-
     });
     $scope.redirect = function (id) {
       $location.url('/blog/' + id);

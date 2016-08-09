@@ -36,7 +36,10 @@ angular
         redirectTo: '/'
       });
   }).run(function($httpBackend,dummyDataGenerator) {
+    // issue for template via ajax
     $httpBackend.whenGET(/views\//).passThrough();
+    //imitate ajax calls
+    // TODO  response 404 if no data
     $httpBackend.whenGET('/api/posts').respond(function () {
       return [ 200, dummyDataGenerator.getPosts()];
     });

@@ -1,5 +1,4 @@
 'use strict';
-
 angular.module('blogApp').service('dummyDataGenerator', function () {
   var i, postsLength = 25, factory = {}, imageCount = 8;
   var posts = [];
@@ -17,7 +16,6 @@ angular.module('blogApp').service('dummyDataGenerator', function () {
       image: 'images/' + i % imageCount + '.png'
     });
   }
-
   factory.getPosts = function () {
     return posts;
   };

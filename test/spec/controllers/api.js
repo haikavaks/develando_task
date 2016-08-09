@@ -6,16 +6,16 @@ describe('Rest Api ', function () {
   beforeEach(module('blogApp'));
 
   var http,
-   _dummyDataGenerator;
+    _dummyDataGenerator;
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ( dummyDataGenerator ,$http) {
+  beforeEach(inject(function (dummyDataGenerator, $http) {
     _dummyDataGenerator = dummyDataGenerator;
     http = $http;
   }));
 
   it('should response api ', function () {
     http.get('/api/posts').then(function (resp) {
-      var posts =   resp.data;
+      var posts = resp.data;
       expect(posts).toBe(_dummyDataGenerator.getPosts());
       expect(posts.length).toBe(25);
     });
@@ -23,8 +23,8 @@ describe('Rest Api ', function () {
   });
   it('should give 1 post ', function () {
     var id = 1;
-    http.post('/api/posts/',{post:id}).then(function (resp) {
-      var post =   resp.data;
+    http.post('/api/posts/', {post: id}).then(function (resp) {
+      var post = resp.data;
       expect(post).toBe(_dummyDataGenerator.getPost(id));
     });
   });

@@ -5,7 +5,7 @@ describe("dummy service", function () {
   var _dummyDataGenerator;
   beforeEach(module("blogApp"));
 
-  beforeEach(inject(function ( dummyDataGenerator) {
+  beforeEach(inject(function (dummyDataGenerator) {
     _dummyDataGenerator = dummyDataGenerator;
   }));
 
